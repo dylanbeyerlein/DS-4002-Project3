@@ -111,6 +111,35 @@ def create_age_by_target_boxplot(data):
     plt.close()
 
 
+def create_anatomical_site_count_plot(data):
+    site_counts = data["anatom_site_general_challenge"].value_counts()
+
+    x_labels = site_counts.index
+    counts = site_counts.values
+    total_count = len(data)
+    percentages = [(count / total_count) * 100 for count in counts]
+
+    bars = plt.bar(x_labels, counts)
+
+    for bar, percentage in zip(bars, percentages):
+        bar_height = bar.get_height()
+        plt.text(
+            bar.get_x() + bar.get_width() / 2,
+            bar_height,
+            f"{percentage:.2f}%",
+            ha="center",
+            va="bottom"
+        )
+
+    plt.title("Anatomical Site Counts")
+    plt.xlabel("Anatomical Site")
+    plt.ylabel("Count")
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR + "anatomical_site_count.png")
+    plt.close()
+
+
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -120,6 +149,7 @@ def main():
     create_diagnosis_count_plot(data)
     create_age_histogram(data)
     create_age_by_target_boxplot(data)
+    create_anatomical_site_count_plot(data)
 
 
 if __name__ == "__main__":
