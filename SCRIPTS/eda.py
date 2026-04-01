@@ -84,12 +84,27 @@ def create_diagnosis_count_plot(data):
     plt.close()
 
 
+def create_age_histogram(data):
+    age_data = data["age_approx"].dropna()
+
+    plt.hist(age_data, bins=20, edgecolor="black")
+    plt.title("Age Histogram")
+    plt.xlabel("Age")
+    plt.ylabel("Count")
+    plt.xticks(range(0, 101, 5))
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR + "age_histogram.png")
+    plt.close()
+
+
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     data = load_data()
+
     create_target_count_plot(data)
     create_diagnosis_count_plot(data)
+    create_age_histogram(data)
 
 
 if __name__ == "__main__":
