@@ -97,6 +97,20 @@ def create_age_histogram(data):
     plt.close()
 
 
+def create_age_by_target_boxplot(data):
+    boxplot_data = data[["age_approx", "target"]].dropna()
+
+    benign_ages = boxplot_data[boxplot_data["target"] == 0]["age_approx"]
+    malignant_ages = boxplot_data[boxplot_data["target"] == 1]["age_approx"]
+
+    plt.boxplot([benign_ages, malignant_ages], labels=["Benign", "Malignant"])
+    plt.title("Age by Target")
+    plt.xlabel("Target")
+    plt.ylabel("Age")
+    plt.savefig(OUTPUT_DIR + "age_by_target.png")
+    plt.close()
+
+
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -105,6 +119,7 @@ def main():
     create_target_count_plot(data)
     create_diagnosis_count_plot(data)
     create_age_histogram(data)
+    create_age_by_target_boxplot(data)
 
 
 if __name__ == "__main__":
