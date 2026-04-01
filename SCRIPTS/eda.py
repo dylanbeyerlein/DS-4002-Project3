@@ -168,6 +168,33 @@ def create_anatomical_site_by_target_stacked_bar_chart(data):
     plt.close()
 
 
+def create_sex_by_target_count_plot(data):
+    sex_target_counts = pd.crosstab(
+        data["sex"],
+        data["target"]
+    )
+
+    sex_target_counts = sex_target_counts.rename(
+        columns={
+            0: "Benign",
+            1: "Malignant"
+        }
+    )
+
+    sex_target_counts.plot(
+        kind="bar"
+    )
+
+    plt.title("Sex by Target")
+    plt.xlabel("Sex")
+    plt.ylabel("Count")
+    plt.xticks(rotation=45, ha="right")
+    plt.legend(title="Target")
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR + "sex_by_target.png")
+    plt.close()
+
+
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -179,6 +206,7 @@ def main():
     create_age_by_target_boxplot(data)
     create_anatomical_site_count_plot(data)
     create_anatomical_site_by_target_stacked_bar_chart(data)
+    create_sex_by_target_count_plot(data)
 
 
 if __name__ == "__main__":
