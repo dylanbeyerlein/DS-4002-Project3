@@ -140,6 +140,34 @@ def create_anatomical_site_count_plot(data):
     plt.close()
 
 
+def create_anatomical_site_by_target_stacked_bar_chart(data):
+    site_target_counts = pd.crosstab(
+        data["anatom_site_general_challenge"],
+        data["target"]
+    )
+
+    site_target_counts = site_target_counts.rename(
+        columns={
+            0: "Benign",
+            1: "Malignant"
+        }
+    )
+
+    site_target_counts.plot(
+        kind="bar",
+        stacked=True
+    )
+
+    plt.title("Anatomical Site by Target")
+    plt.xlabel("Anatomical Site")
+    plt.ylabel("Count")
+    plt.xticks(rotation=45, ha="right")
+    plt.legend(title="Target")
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR + "anatomical_site_by_target.png")
+    plt.close()
+
+
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -150,6 +178,7 @@ def main():
     create_age_histogram(data)
     create_age_by_target_boxplot(data)
     create_anatomical_site_count_plot(data)
+    create_anatomical_site_by_target_stacked_bar_chart(data)
 
 
 if __name__ == "__main__":
