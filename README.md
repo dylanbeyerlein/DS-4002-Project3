@@ -22,6 +22,7 @@ In this project, we used Python and Jupyter Notebooks in VS Code as our coding l
   - Gradcam_Outputs_EfficietNetB0
   - Gradcam_Outputs_ResNet18
 - Scripts
+  - EfficientNet_PyTorch_Model.ipynb
   - Data_Cleaning.ipynb
   - Statistical_Testin.ipynb
   - eda.py
