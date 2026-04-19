@@ -6,10 +6,26 @@ In this project, we used Python and Jupyter Notebooks in VS Code as our coding l
 
 ## Section 2: Map of Documentation
 - Data
+  - cleaned_data.csv
+  - raw_data.csv
+  - slim_2000.csv
 - Output
   - figures
-  - 
+    - age_by_target.png
+    - age_histogram.png
+    - anatomical_site_by_target.png
+    - anatomical_site_count.png
+    - diagnosis_count.png
+    - sex_by_target.png
+    - target_count.png
+  - Gradcam_Outputs_DenseNet121
+  - Gradcam_Outputs_EfficietNetB0
+  - Gradcam_Outputs_ResNet18
 - Scripts
+  - Data_Cleaning.ipynb
+  - Statistical_Testin.ipynb
+  - eda.py
+- .gitignore
 - LICENSE.md
 - README.md
 
