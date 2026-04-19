@@ -21,6 +21,7 @@ In this project, we used Python and Jupyter Notebooks in VS Code as our coding l
   - Gradcam_Outputs_DenseNet121
   - Gradcam_Outputs_EfficietNetB0
   - Gradcam_Outputs_ResNet18
+  - Model_Comparison.csv
 - Scripts
   - EfficientNet_PyTorch_Model.ipynb
   - ResNet_PyTorch_Model.ipynb
