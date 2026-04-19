@@ -26,10 +26,15 @@ In this project, we used Python and Jupyter Notebooks in VS Code as our coding l
   - ResNet_PyTorch_Model.ipynb
   - DenseNet_PyTorch_Model.ipynb
   - Data_Cleaning.ipynb
-  - Statistical_Testin.ipynb
+  - Statistical_Testing.ipynb
   - eda.py
 - .gitignore
 - LICENSE.md
 - README.md
 
 ## Section 3: Instructions for Reproducibility
+1. Download both ISIC image data and the cleaned_data.csv
+2. Run the eda.py to produce all the figures
+3. In each PyTorch Model, fill in the necessary file paths for the image directory, csv_path, and gradcam directories
+4. Run each model and record results in a csv file
+5. Run this csv file within Statistical_Testing.ipynb to produce the statistical conclusions
